@@ -7,26 +7,26 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import java.time.Instant;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "users")
-public class User {
+@Document(collection="otps")
+public class Otp {
 
     @Id
     private String id;
 
-    private String email;
+    private String toEmail;
 
-    private String password; //BCrypt hashed
+    private String code;
 
-    private List<String> roles; // e.g. ["ROLE_USER","ROLE_ADMIN"]
+    private Instant expiresAt;
 
-    private String name;
+    private String purpose; // user-register, device create
 
-    private boolean enabled = true;
+    private boolean used = false;
 
 }
