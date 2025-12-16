@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: iotbackendapplication
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/iotdb}
+
+  maiL:
+    host: ${SMTP_HOST:localhost}
+    port: ${SMTP_PORT:1025}
+    username: ${SMTP_USER:}
+    password: ${SMTP_PASS:}
+    properties:
+      mail:
+        smtp:
+          auth: ${SMTP_AUTH:false}
+          starttls:
+            enable: ${SMTP_STARTTLS:false}
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET:}
+    expiration-ms: ${APP_JWT_EXPIRATION_MS:}
+
+  device:
+    key-length: ${DEVICE_KEY_LENGTH:24}
+
+server:
+  port: ${PORT:8080}
