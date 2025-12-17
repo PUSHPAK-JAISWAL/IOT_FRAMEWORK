@@ -4,9 +4,11 @@ import com.techamigo.iot.iotbackendapplication.entity.Device;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface DeviceRepository extends MongoRepository<Device,String> {
     Optional<Device> findByDeviceKey(String deviceKey);
     Page<Device> findByOwnerId(String OwnerId, Pageable pageable);
